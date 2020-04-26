@@ -31,6 +31,10 @@ https://www.pyimagesearch.com/2018/07/19/opencv-tutorial-a-guide-to-learn-opencv
 3 Python Programming Tutorials
 https://pythonprogramming.net/loading-images-python-opencv-tutorial/
 
+-----------------------
+https://pythonprogramming.net/loading-images-python-opencv-tutorial/
+
+0 loading images
 
 using 2 libraries
 
@@ -41,6 +45,16 @@ https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.plot.html
 
 how does opencv run in python
 how is numpy involved
+
+
+----------------------
+https://pythonprogramming.net/loading-video-python-opencv-tutorial/?completed=/loading-images-python-opencv-tutorial/
+
+1 video file
+
+how is video file compiled
+how to decompile video file
+what is structure of a video file
 
 
 
