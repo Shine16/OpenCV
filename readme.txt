@@ -56,5 +56,14 @@ how is video file compiled
 how to decompile video file
 what is structure of a video file
 
+LEARN OPENCV in 3 HOURS with Python | Including 3x Example Projects (2020)
+https://www.youtube.com/watch?v=WQeoO7MI0Bs
+https://github.com/murtazahassan/Learn-OpenCV-in-3-hours
+
+
+https://docs.opencv.org/master/db/d28/tutorial_cascade_classifier.html
+https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_objdetect/py_face_detection/py_face_detection.html
+https://www.youtube.com/watch?v=3D7O_kZi8-o
+https://www.youtube.com/watch?v=h56M5iUVgGs
 
 
