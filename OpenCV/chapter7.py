@@ -37,15 +37,18 @@ def stackImages(scale,imgArray):
 
 
 
+
+# to detect orange color of lambo
 path = 'Resources/lambo.png'
-cv2.namedWindow("TrackBars")
+cv2.namedWindow("TrackBars") # create windows for trackbar
 cv2.resizeWindow("TrackBars",640,240)
-cv2.createTrackbar("Hue Min","TrackBars",0,179,empty)
-cv2.createTrackbar("Hue Max","TrackBars",19,179,empty)
+cv2.createTrackbar("Hue Min","TrackBars",0,179,empty) # trackbar, window, value range, value?
+cv2.createTrackbar("Hue Max","TrackBars",19,179,empty) # leads to an empty function
 cv2.createTrackbar("Sat Min","TrackBars",110,255,empty)
 cv2.createTrackbar("Sat Max","TrackBars",240,255,empty)
 cv2.createTrackbar("Val Min","TrackBars",153,255,empty)
 cv2.createTrackbar("Val Max","TrackBars",255,255,empty)
+#https://docs.opencv.org/2.4/modules/highgui/doc/user_interface.html?highlight=createtrackbar
 
 while True:
     img = cv2.imread(path)
@@ -56,11 +59,11 @@ while True:
     s_max = cv2.getTrackbarPos("Sat Max", "TrackBars")
     v_min = cv2.getTrackbarPos("Val Min", "TrackBars")
     v_max = cv2.getTrackbarPos("Val Max", "TrackBars")
-    print(h_min,h_max,s_min,s_max,v_min,v_max)
-    lower = np.array([h_min,s_min,v_min])
+    print(h_min,h_max,s_min,s_max,v_min,v_max) # print values from trackbar
+    lower = np.array([h_min,s_min,v_min]) # create array for hsv values
     upper = np.array([h_max,s_max,v_max])
     mask = cv2.inRange(imgHSV,lower,upper)
-    imgResult = cv2.bitwise_and(img,img,mask=mask)
+    imgResult = cv2.bitwise_and(img,img,mask=mask) # only get orange from original pic
 
 
     # cv2.imshow("Original",img)

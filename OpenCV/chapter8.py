@@ -1,6 +1,10 @@
 import cv2
 import numpy as np
 
+# detecting shapes
+#https://realpython.com/python-idle/
+
+
 def stackImages(scale,imgArray):
     rows = len(imgArray)
     cols = len(imgArray[0])
@@ -32,46 +36,75 @@ def stackImages(scale,imgArray):
         ver = hor
     return ver
 
+
+
 def getContours(img):
+    
     contours,hierarchy = cv2.findContours(img,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+    # all contours are saved in contours
+    
     for cnt in contours:
-        area = cv2.contourArea(cnt)
+        # each contour in cnt
+        area = cv2.contourArea(cnt) # find area of contour
         print(area)
-        if area>500:
-            cv2.drawContours(imgContour, cnt, -1, (255, 0, 0), 3)
-            peri = cv2.arcLength(cnt,True)
+        if area>500: # > 500 pixels, threshold for area so it does not detect noise
+            cv2.drawContours(imgContour, cnt, -1, (255, 0, 0), 3) #draw contour in blue, image, contour, index, blue, line width
+            peri = cv2.arcLength(cnt,True) # calculates contour perimeter
             #print(peri)
             approx = cv2.approxPolyDP(cnt,0.02*peri,True)
+            #https://docs.opencv.org/3.4.8/d3/dc0/group__imgproc__shape.html#ga0012a5fdaea70b8a9970165d98722b4c
+            # https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contour_features/py_contour_features.html
+            #https://answers.opencv.org/question/74777/how-to-use-approxpolydp-to-close-contours/
+            #https://rsdharra.com/blog/lesson/16.html
+            #https://theailearner.com/2019/11/22/simple-shape-detection-using-contour-approximation/
+            #https://docs.opencv.org/3.4/dc/dcf/tutorial_js_contour_features.html
+            #https://docs.opencv.org/3.4/d3/dc0/group__imgproc__shape.html#ga0012a5fdaea70b8a9970165d98722b4c
+            #https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
+            #finds number of corners , true - contour is closed
+            #Image ApproxPolyDP Example
+                #https://docs.opencv.org/3.4/js_contour_features_approxPolyDP.html
+
+                #OpenCV: Structural Analysis and Shape Descriptors
+                #https://docs.opencv.org/3.4/d3/dc0/group__imgproc__shape.html#ga0012a5fdaea70b8a9970165d98722b4c
+
             print(len(approx))
             objCor = len(approx)
-            x, y, w, h = cv2.boundingRect(approx)
+            x, y, w, h = cv2.boundingRect(approx) #use bounding box to get dimensions of object
 
-            if objCor ==3: objectType ="Tri"
+            if objCor ==3:
+                objectType ="Tri"
             elif objCor == 4:
                 aspRatio = w/float(h)
-                if aspRatio >0.98 and aspRatio <1.03: objectType= "Square"
-                else:objectType="Rectangle"
-            elif objCor>4: objectType= "Circles"
-            else:objectType="None"
+                if aspRatio >0.98 and aspRatio <1.03:
+                    objectType= "Square"
+                else:
+                    objectType="Rectangle"
+            elif objCor>4:
+                objectType= "Circles"
+            else:
+                objectType="None"
 
 
-
-            cv2.rectangle(imgContour,(x,y),(x+w,y+h),(0,255,0),2)
+            
+            cv2.rectangle(imgContour,(x,y),(x+w,y+h),(0,255,0),2) # draw bounding box, green
+            
             cv2.putText(imgContour,objectType,
                         (x+(w//2)-10,y+(h//2)-10),cv2.FONT_HERSHEY_COMPLEX,0.7,
-                        (0,0,0),2)
+                        (0,0,0),2)# place text
 
 
 
 
 path = 'Resources/shapes.png'
 img = cv2.imread(path)
-imgContour = img.copy()
+imgContour = img.copy() # copy over
 
-imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-imgBlur = cv2.GaussianBlur(imgGray,(7,7),1)
-imgCanny = cv2.Canny(imgBlur,50,50)
-getContours(imgCanny)
+#preprocessing
+imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) #grayscale
+imgBlur = cv2.GaussianBlur(imgGray,(7,7),1) #blur it, why? make it thicker??
+imgCanny = cv2.Canny(imgBlur,50,50) #canny edge detection
+#imgCanny = cv2.Canny(imgGray,50,50)
+getContours(imgCanny) # get the contours
 
 imgBlank = np.zeros_like(img)
 imgStack = stackImages(0.8,([img,imgGray,imgBlur],
