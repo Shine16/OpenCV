@@ -1,3 +1,5 @@
+
+
 guide
 https://pysource.com/2019/03/15/how-to-install-python-3-and-opencv-4-on-windows/
 
@@ -66,4 +68,7 @@ https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_objdetec
 https://www.youtube.com/watch?v=3D7O_kZi8-o
 https://www.youtube.com/watch?v=h56M5iUVgGs
 
+
+good project, attendance taking
+https://www.youtube.com/watch?v=sz25xxF_AVE
 
