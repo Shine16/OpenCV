@@ -1,7 +1,11 @@
 
 
-guide
+to install one way
 https://pysource.com/2019/03/15/how-to-install-python-3-and-opencv-4-on-windows/
+
+to install opencv
+-pip install opencv-python
+-pip install matplotlib
 
 file links
 1 https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe
@@ -72,3 +76,26 @@ https://www.youtube.com/watch?v=h56M5iUVgGs
 good project, attendance taking
 https://www.youtube.com/watch?v=sz25xxF_AVE
 
+
+================
+python libraries
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#opencv
+
+on pip
+https://phoenixnap.com/kb/install-pip-windows
+
+
+How To Read Image-Video-Webcam [1] | OpenCV Python Tutorials for Beginners 2020 - YouTube
+https://www.youtube.com/watch?v=gH_kQZo-NSk&list=PLMoSUbG1Q_r_sc0x7ndCsqdIkL7dwrmNF&index=2
+
+Read Image-Video-Webcam - MURTAZA'S WORKSHOP
+https://www.murtazahassan.com/read-image-video-webcam/
+
+Read Image-Video-Webcam - MURTAZA'S WORKSHOP
+https://www.murtazahassan.com/read-image-video-webcam/
+
+OpenCV Course Archives - MURTAZA'S WORKSHOP
+https://www.murtazahassan.com/category/opencv/opencv-course/
+
+Face Recognition and Attendance System - MURTAZA'S WORKSHOP
+https://www.murtazahassan.com/face-recognition-and-attendance-system/
