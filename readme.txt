@@ -1,4 +1,10 @@
+https://github.com/murtazahassan/OpenCV-Python-Tutorials-and-Projects
 
+another good tutorial
+https://pysource.com/2018/03/27/mouse-events-opencv-3-4-with-python-3-tutorial-27/
+
+another good tutorial
+https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
 
 to install one way
 https://pysource.com/2019/03/15/how-to-install-python-3-and-opencv-4-on-windows/
